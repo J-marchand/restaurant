@@ -1,0 +1,18 @@
+<!-- Message de notification -->
+
+<!-- Code HTML à écrire -->
+
+
+<!-- Liste des aliments -->
+<table class="generic-table meal-list">
+    <caption>Carte du restaurant</caption>
+    <tbody>
+        <?php foreach($meals as $meal): ?>
+        <tr>
+            <td> <img src="<?=$wwwUrl?>/images/meals/<?= $meal['Photo'] ?>" alt="image de bouf"></td>
+            <td> <?= $meal['Name'] ?> <br> <?= $meal['Description'] ?></td>
+            <td class="number"> <?= $meal['SalePrice'] ?> €</td>
+        </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
