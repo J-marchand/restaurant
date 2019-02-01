@@ -1,16 +1,14 @@
 'use strict'
-var jsonView = function(){
-
-    this.products = [];
-    this.loadLocalStorage();
-    $('#meal').on('change', this.onChangeView.bind(this));
-    $('#addMeal').on('click', this.addLocalStorage.bind(this));
+var jsonView = function(){  
+    
+    this.basket = new Basket();
+    $('#meal').on('change', this.onChangeView.bind(this));    
 }
 
 jsonView.prototype.onChangeView = function()
 {
     var value = $('#meal').val();
-    console.log(value);
+    //console.log('coucou');
 
     $.getJSON('http://localhost/restaurant/index.php/meal?id='+value, this.jsonCallback);
 }
@@ -25,26 +23,4 @@ jsonView.prototype.jsonCallback = function(response){
     $('#meal-details span strong').html(response.SalePrice)
 }
 
-jsonView.prototype.addLocalStorage = function(event){
-    event.preventDefault();
-    var product = {
-        mealId : $('#meal').val(),
-        name : $('#meal-details h3').text(),
-        quantity: $('#quantity').val(),
-        salePrice : $('#meal-details span strong').text()
-    }
 
-    
-    this.products.push(product);
-
-    saveDataToDomStorage('panier', this.products);
-
-}
-
-jsonView.prototype.loadLocalStorage = function(){
-    this.products = loadDataFromDomStorage('panier');
-
-    if (this.products == null) {
-        this.products = [];
-    }
-}

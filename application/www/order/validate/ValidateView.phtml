@@ -1,0 +1,54 @@
+<main class="">
+    <!-- Affichage du template lié à la vue -->
+    <h2><i class="fa fa-check"></i> Payer la commande</h2>
+
+<section class="invoice">
+    <p><strong><?= $_SESSION['FirstName'].' '.$_SESSION['LastName'] ?></strong></p>
+    <p><?= $_SESSION['Adress'] ?></p>
+    <p><span class="city"><?= $_SESSION['ZipCode'].' '.$_SESSION['City'] ?></span></p>
+</section>
+
+<table class="generic-table meal-list">
+    <caption></caption>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th class="number">Quantité</th>
+            <th class="number">Prix Unitaire</th>
+            <th class="number">Prix Total</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total HT</td>
+            <td id="totalht"></td>
+        </tr>
+        <tr>
+            <td colspan="3">TVA (20%)</td>
+            <td id="tva"></td>
+        </tr>
+        <tr>
+            <td class="colorful" colspan="3">Total TTC</td>
+            <td id="totalttc" class="colorful"></td>
+        </tr>
+    </tfoot>
+    <tbody id="validateOrder">
+        
+    </tbody>
+</table>
+
+<hr>
+<h3>Merci de bien vouloir procéder au paiement de la commande.</h3>
+<form class="generic-form" action="/resto/index.php/order/payment" method="POST">
+	<ul>
+		<li>
+			<input class="button button-primary" type="submit" value="Payer">
+			<a class="button button-cancel small" href="/resto/index.php">Annuler</a>
+		</li>
+	</ul>
+</form>
+
+<script src="<?= $wwwUrl ?>/js/classes/Validate.class.js"></script>
+<script src="<?= $wwwUrl ?>/js/classes/Basket.class.js"></script>
+
+</main>

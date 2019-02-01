@@ -4,7 +4,22 @@
 // FONCTIONS                                                                           //
 /////////////////////////////////////////////////////////////////////////////////////////
 
-var jsonView = new jsonView();
+if (document.location.href.indexOf('order') != -1 && document.location.href.indexOf('order/validate') == -1) {
+    
+
+    var jsonView = new jsonView();
+    jsonView.onChangeView();
+}
+
+if (document.location.href.indexOf('order/validate') != -1) {
+    
+
+    var validate = new Validate();
+    validate.loadBasket();
+}
+
+
+
 
 
 
@@ -12,4 +27,3 @@ var jsonView = new jsonView();
 // CODE PRINCIPAL                                                                      //
 /////////////////////////////////////////////////////////////////////////////////////////
 
-jsonView.onChangeView();
