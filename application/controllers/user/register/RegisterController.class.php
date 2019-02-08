@@ -10,8 +10,8 @@ class RegisterController
 
     public function httpPostMethod(Http $http, array $formFields)
     {
-		var_dump($_POST);
-		$data = new UserModel();
-		$data->addUser($_POST);
+      var_dump($_POST);
+      $data = new UserModel();
+      $data->addUser($_POST);
     }
 }

@@ -74,3 +74,4 @@ Basket.prototype.deleteProduct = function(event){
     this.buildProduct();
 
 }
+

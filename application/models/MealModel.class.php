@@ -27,6 +27,23 @@ class MealModel {
 
         return $find;
     }
+
+    public function findSalePrice($mealId){
+        
+        $data = new Database();
+        $salePrice = $data->queryOne('SELECT
+                                        SalePrice
+                                    FROM 
+                                        Meal
+                                    WHERE 
+                                        Id = ?',
+                                    [$mealId]
+                                    );
+
+        return $salePrice;
+    }
+
+
 }
 
 ?>

@@ -8,7 +8,7 @@ var jsonView = function(){
 jsonView.prototype.onChangeView = function()
 {
     var value = $('#meal').val();
-    //console.log('coucou');
+    console.log('coucou');
 
     $.getJSON('http://localhost/restaurant/index.php/meal?id='+value, this.jsonCallback);
 }

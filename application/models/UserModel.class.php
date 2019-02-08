@@ -67,6 +67,7 @@ class UserModel
             $_SESSION['City']       = $info['City'];
             $_SESSION['ZipCode']    = $info['ZipCode'];
             $_SESSION['Phone']      = $info['Phone'];
+            $_SESSION['Id']         = $info['Id'];
 
             $http = new Http;
             $http->redirectTo('/');
