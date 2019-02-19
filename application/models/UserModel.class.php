@@ -71,9 +71,6 @@ class UserModel
 
             $http = new Http;
             $http->redirectTo('/');
-        }
-        
-    }
-
-    
+        }        
+    }    
 }
